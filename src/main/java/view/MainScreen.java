@@ -308,6 +308,8 @@ public class MainScreen extends javax.swing.JFrame {
                 jTextFieldTries.setText(Integer.toString(tries));
                 return "Too low!";
             } else {
+                tries++;
+                jTextFieldTries.setText(Integer.toString(tries));
                 jButtonAgain.setVisible(true);
                 jTextFieldNumber.setText(Integer.toString(chosenNumber.getNumber()));
                 return "Right!";
