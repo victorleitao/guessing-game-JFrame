@@ -219,6 +219,7 @@ public class MainScreen extends javax.swing.JFrame {
     private void jButtonAgainMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonAgainMouseClicked
         jTextFieldNumber.setText("?");
         jButtonAgain.setVisible(false);
+        jTextFieldYourGuess.setText("");
         changeNumber();
     }//GEN-LAST:event_jButtonAgainMouseClicked
 
