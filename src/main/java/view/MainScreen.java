@@ -8,6 +8,7 @@ import javax.swing.JTextField;
 public class MainScreen extends javax.swing.JFrame {
 
     MysteriousNumber chosenNumber = new MysteriousNumber();
+    int tries = 0;
 
     public MainScreen() {
         initComponents();
@@ -32,6 +33,8 @@ public class MainScreen extends javax.swing.JFrame {
         jPanelYourGuessWasSeparator = new javax.swing.JPanel();
         jTextFieldYourGuessWas = new javax.swing.JTextField();
         jButtonAgain = new javax.swing.JButton();
+        jLabelTries = new javax.swing.JLabel();
+        jTextFieldTries = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -78,7 +81,7 @@ public class MainScreen extends javax.swing.JFrame {
         );
         jPanelYourGuessSeparatorLayout.setVerticalGroup(
             jPanelYourGuessSeparatorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 63, Short.MAX_VALUE)
         );
 
         jTextFieldYourGuess.setFont(new java.awt.Font("Segoe UI", 0, 42)); // NOI18N
@@ -122,6 +125,13 @@ public class MainScreen extends javax.swing.JFrame {
             }
         });
 
+        jLabelTries.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelTries.setText("Number of Tries:");
+
+        jTextFieldTries.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jTextFieldTries.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextFieldTries.setText("0");
+
         javax.swing.GroupLayout jPanelGuessTheNumberLayout = new javax.swing.GroupLayout(jPanelGuessTheNumber);
         jPanelGuessTheNumber.setLayout(jPanelGuessTheNumberLayout);
         jPanelGuessTheNumberLayout.setHorizontalGroup(
@@ -140,6 +150,11 @@ public class MainScreen extends javax.swing.JFrame {
                     .addComponent(jPanelYourGuessWasSeparator, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanelGuessTheNumberLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelGuessTheNumberLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jLabelTries, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTextFieldTries, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jTextFieldYourGuessWas)
                     .addGroup(jPanelGuessTheNumberLayout.createSequentialGroup()
                         .addGroup(jPanelGuessTheNumberLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -166,21 +181,26 @@ public class MainScreen extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelGuessTheNumberLayout.createSequentialGroup()
                         .addComponent(jButtonAgain, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(9, 9, 9)))
+                .addGap(9, 9, 9)
+                .addGroup(jPanelGuessTheNumberLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanelGuessTheNumberLayout.createSequentialGroup()
+                        .addComponent(jButtonGuess, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(17, 17, 17))
+                    .addGroup(jPanelGuessTheNumberLayout.createSequentialGroup()
+                        .addGroup(jPanelGuessTheNumberLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabelYourGuess, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jPanelYourGuessSeparator, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextFieldYourGuess, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                 .addGroup(jPanelGuessTheNumberLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanelGuessTheNumberLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanelGuessTheNumberLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabelYourGuess, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jPanelYourGuessSeparator, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jTextFieldYourGuess)))
-                    .addGroup(jPanelGuessTheNumberLayout.createSequentialGroup()
-                        .addGap(17, 17, 17)
-                        .addComponent(jButtonGuess, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanelGuessTheNumberLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jLabelYourGuessWas, javax.swing.GroupLayout.DEFAULT_SIZE, 70, Short.MAX_VALUE)
+                        .addComponent(jPanelYourGuessWasSeparator, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jTextFieldYourGuessWas, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanelGuessTheNumberLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabelYourGuessWas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanelYourGuessWasSeparator, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jTextFieldYourGuessWas, javax.swing.GroupLayout.DEFAULT_SIZE, 70, Short.MAX_VALUE))
+                    .addComponent(jTextFieldTries, javax.swing.GroupLayout.DEFAULT_SIZE, 27, Short.MAX_VALUE)
+                    .addComponent(jLabelTries, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -192,7 +212,7 @@ public class MainScreen extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanelGuessTheNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanelGuessTheNumber, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -220,6 +240,8 @@ public class MainScreen extends javax.swing.JFrame {
         jTextFieldNumber.setText("?");
         jButtonAgain.setVisible(false);
         jTextFieldYourGuess.setText("");
+        jTextFieldTries.setText("0");
+        tries = 0;
         changeNumber();
     }//GEN-LAST:event_jButtonAgainMouseClicked
 
@@ -261,6 +283,7 @@ public class MainScreen extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelNumber;
     private javax.swing.JLabel jLabelRules;
     private javax.swing.JLabel jLabelTitle;
+    private javax.swing.JLabel jLabelTries;
     private javax.swing.JLabel jLabelYourGuess;
     private javax.swing.JLabel jLabelYourGuessWas;
     private javax.swing.JPanel jPanelGuessTheNumber;
@@ -268,6 +291,7 @@ public class MainScreen extends javax.swing.JFrame {
     private javax.swing.JPanel jPanelYourGuessSeparator;
     private javax.swing.JPanel jPanelYourGuessWasSeparator;
     private javax.swing.JTextField jTextFieldNumber;
+    private javax.swing.JTextField jTextFieldTries;
     private javax.swing.JTextField jTextFieldYourGuess;
     private javax.swing.JTextField jTextFieldYourGuessWas;
     // End of variables declaration//GEN-END:variables
@@ -275,9 +299,13 @@ public class MainScreen extends javax.swing.JFrame {
     //private String verifyNumber(int guess, int number) {
     private String verifyNumber(int guess, int number) {
         if (guess > number) {
+            tries++;
+            jTextFieldTries.setText(Integer.toString(tries));
             return "Too high!";
         } else {
             if (guess < number) {
+                tries++;
+                jTextFieldTries.setText(Integer.toString(tries));
                 return "Too low!";
             } else {
                 jButtonAgain.setVisible(true);
